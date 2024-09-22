@@ -1,0 +1,437 @@
+Delivered-To: sandersonjevaun10@gmail.com
+Received: by 2002:a05:6f02:c091:b0:74:da91:45ff with SMTP id a17csp1321623rcc;
+        Sat, 21 Sep 2024 00:44:03 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHxWO651tVXhsDSqI5QCbJA1fbPTa+6p+hcfIEMCVxoYWWQWq2vfivZ9ZSRLKcHk0PNBHTL
+X-Received: by 2002:a05:6902:1388:b0:e1e:5cfc:44c4 with SMTP id 3f1490d57ef6-e2250c3d182mr4984017276.19.1726904642825;
+        Sat, 21 Sep 2024 00:44:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1726904642; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VZ+80gKEM5W6PKAV9u5mu3hl6+IVmL6KBbqIqEWnveC9c8KSbfze99JWg0eqi3tNyP
+         n4O+HOn6OjbLdubt7wgpfksJmdwPSRpp/nBzD6l2emtc85jPAOGic3/1Fec5mUpsbwjN
+         8PDnLQNxVc1pG/D6n7ij0sGSPdYlU32lUJTufrfoM7/y4UW6I3X1DWw/436jojsPIWrB
+         qC1pAqRPD+evOBFQ3z3n0Ay7yMFzB4VJEscaxjDJXwh1KgYj7rHj+ktOg8pFeCOhCGEt
+         ibjHvJm2ZW6IMoEgbQYt3As6gDWjSu//qn104sN3xeymzckBY+DrqSJyzfjU7OZiLKxp
+         Lafw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:to:mime-version:subject:message-id:from
+         :date:dkim-signature;
+        bh=6hpPQFLgeoXHmu/pQn/hAiX0QDDD6GGCDFjVB2yOnlM=;
+        fh=0b+rCy1oQKMbcH2dzBRqs3re2Er55X72CYvWr/U/clE=;
+        b=GggLhs1T20+lL+CmpOjQYOclFSdk0H4OnR8JSVeHnZ2fr1fRwLCuADFW1N8rHmDWhD
+         RCc8+QUNMHurNACAJ9YJHoiRUPP2/2rPat2xLZeXhHICJ/uNM4DbUP3+1GOIKifcLCd9
+         PjYA5RR138gJCelE6ZxyQbllk83v6uBqmVW7szno33bjKyxHfbm6oJ/VVWcbdoyf/yvF
+         ELSW/pQTih9IeHXZPtcLtydaDbz1ALgqaIW9Hv43QSmasoHr1q2/D2J7eDk2PyIJ5/PF
+         HrLJxaZJ2urzW8AxIwfNwVJQsONLuE52NLa77n5hyRXjphSUJMV+WOP4wcDjpLcG++a3
+         u88w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sendgrid.net header.s=smtpapi header.b=PVqrN2jw;
+       spf=pass (google.com: domain of bounces+5499907-3be9-sandersonjevaun10=gmail.com@sendgrid.net designates 167.89.18.14 as permitted sender) smtp.mailfrom="bounces+5499907-3be9-sandersonjevaun10=gmail.com@sendgrid.net"
+Return-Path: <bounces+5499907-3be9-sandersonjevaun10=gmail.com@sendgrid.net>
+Received: from s.xtrwknhz.outbound-mail.sendgrid.net (s.xtrwknhz.outbound-mail.sendgrid.net. [167.89.18.14])
+        by mx.google.com with ESMTPS id 3f1490d57ef6-e1dc13d32fdsi9843652276.573.2024.09.21.00.44.02
+        for <sandersonjevaun10@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 21 Sep 2024 00:44:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+5499907-3be9-sandersonjevaun10=gmail.com@sendgrid.net designates 167.89.18.14 as permitted sender) client-ip=167.89.18.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sendgrid.net header.s=smtpapi header.b=PVqrN2jw;
+       spf=pass (google.com: domain of bounces+5499907-3be9-sandersonjevaun10=gmail.com@sendgrid.net designates 167.89.18.14 as permitted sender) smtp.mailfrom="bounces+5499907-3be9-sandersonjevaun10=gmail.com@sendgrid.net"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.net;
+	h=from:subject:mime-version:x-feedback-id:to:content-type:
+	content-transfer-encoding:cc:content-type:from:subject:to;
+	s=smtpapi; bh=6hpPQFLgeoXHmu/pQn/hAiX0QDDD6GGCDFjVB2yOnlM=;
+	b=PVqrN2jwnMEqJR8j9O+MoPBj5O7VXpjV+OUnU3+EwoHgQcCpBLGWKtt+0zKmDWPAh4s6
+	kmNN+Vmkm6F6eWTp+qVS7mcUcmP6JOyzrggY0yi8PNCSKwVpiRMk2kDPu/fIDUmfQKpPhT
+	W4B5xQTg1EOxyC2lwmH+th8r5bkZywsuc=
+Received: by recvd-5577bcb48c-462gf with SMTP id recvd-5577bcb48c-462gf-1-66EE7942-A
+	2024-09-21 07:44:02.355385655 +0000 UTC m=+740832.182642029
+Received: from localhost.localdomain (unknown)
+	by geopod-ismtpd-25 (SG)
+	with ESMTP id xXyb5YWnQZ2G8CQflMpLrA
+	for <sina.iman@gmail.com>;
+	Sat, 21 Sep 2024 07:44:02.335 +0000 (UTC)
+Date: Sat, 21 Sep 2024 07:44:02 +0000 (UTC)
+From: Keirsey <assessments@keirsey.com>
+Message-ID: <66ee79422b19d_522140341bc217599@ip-172-31-14-106.mail>
+Subject: Your Temperament Results
+Mime-Version: 1.0
+X-Feedback-ID: 5499907:SG
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Emf2i0iMtiB7W5gyucF5K8ohQX0CZ0dd75CJlSsUkloya5YiswIsrV9UBR?=
+ =?us-ascii?Q?nz2Egn8NyuUGLVxGMRxjADYzS3uuKe2yYN2jXD7?=
+ =?us-ascii?Q?GtnezmurwLIJB5RWshOC37l6J=2Fj=2Fire=2FyJbE2Gt?=
+ =?us-ascii?Q?wcNvgsDH7ef43Pee9uEBZO4NgcXG3PmgdlEPyPO?=
+ =?us-ascii?Q?LB1Npm+Qb9w4iS3i+yDEWNnYh0YH+8a7n17zDaX?=
+ =?us-ascii?Q?QKcpYlUxtZdIDp=2FN9TK6vcMrk9ZIaxQG3gtaW2F?= =?us-ascii?Q?3s69?=
+To: sandersonjevaun10@gmail.com
+X-Entity-ID: u001.H+NIpU/5h9MxxFXG3TIxuA==
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_66ee79422ad1b_522140341bc217492";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_66ee79422ad1b_522140341bc217492
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+"The first step toward seeing
+others as distinct from yourself is to become better acquainted
+with your own traits of
+character."
+
+- David Keirsey
+
+Your Temperament Results
+------------------------
+
+Guardian
+--------
+
+Your Username:
+sandersonjevaun10@gmail.com
+
+Use your Keirsey Profile page to
+learn about what it means to be a
+Guardian. Discover how your
+temperament shapes your approach to the workplace, romance,
+careers, leadership,
+and more.
+Share your journey with your
+friends and colleagues!
+
+My Keirsey Profile 
+( https://u5499907.ct.sendgrid.net/ls/click?upn=u001.QXPJ-2FHWOJ9DJKfMHCPl29tT4W1gkZYaZipmBPUYFX25BVCQmgRegFqXB79J6HaxDRsu7PeRlcpuK02EhkndVtQ-3D-3D9gGT_yShykUKh-2BLg16TlwubmuFkGORxXr2XuZSXhp7z9yPnUyZWH3mqfYSz19HBjWHvVW8GXsEq7OIkrRhqMTK3tq7v4vg2GRkotKHO9u7kTCfsIo92GPJxxPi3hkgi4FYwtWowNHVdjsjsIg8giejEBbz222MBsYYijP-2FGEf1u3tslt-2BAALH6qU6JCS2bJyBwadnrzqWjfSORNtG8VYV7i-2FDpw-3D-3D )
+
+Our mission is to change the
+
+world by helping people understand each other.
+----==_mimepart_66ee79422ad1b_522140341bc217492
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" style="background-color: #fff !important;" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Forgot Password</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" data-premailer="ignore" />
+  <style type="text/css">
+    body {
+      font-family: 'Open Sans', Helvetica, 'Trebuchet MS', sans-serif !important;
+      color: #4b4949;
+      margin: 0px;
+      padding: 0px;
+      background-color: #f9f9f9;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-weight: 200;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 25px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.41;
+      letter-spacing: normal;
+      text-align: center;
+      color: #4b4949;
+    }
+
+    h5 {
+      font-size: 15.6px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.17;
+      letter-spacing: normal;
+      text-align: center;
+      color: #4b4949;
+    }
+
+    .logo {
+      height: 35px;
+      margin: 20px 0 50px 0;
+    }
+
+    .container {
+      margin: auto;
+      padding: 0px 20px;
+      max-width: 600px;
+      background: white;
+    }
+
+    .color-table&gt;tbody tr td.header {
+      color: #3475A9;
+      vertical-align: top;
+      min-width: 180px;
+      padding: 5px;
+      text-align: right;
+    }
+
+    .color-table&gt;tbody tr td.member {
+      margin-top: 20px;
+    }
+
+    .member-table {
+      width: 50%;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    .member-table td {
+      padding-bottom: 10px;
+    }
+
+    .footer {
+      width: 640px;
+      margin: auto;
+      padding: 50px 0 28px 0px;
+      text-align: center;
+      background-color: #f9f9f9;
+      color: #959595;
+    }
+
+    p {
+      padding: 25px 0px;
+    }
+
+    .btn {
+      padding: 10px 15px;
+      background-color: #EBBAB4;
+      color: #464646;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 35px;
+      text-decoration: none;
+      margin: auto;
+      display: inline-block;
+    }
+
+    .blue-text {
+      color: #3475A9;
+    }
+
+    .blue {
+      background: #3475A9;
+      color: white;
+      font-weight: 300;
+    }
+
+    .email {
+      color: #2e86c4;
+      text-decoration: none;
+    }
+
+    .bg {
+      width: 100%;
+      height: 100%;
+      background-color: #dedede;
+    }
+
+    .guardian {
+      color: rgb(245, 208, 88) !important;
+    }
+
+    .artisan {
+      color: rgb(237, 28, 36) !important;
+    }
+
+    .idealist {
+      color: rgb(0, 161, 75) !important;
+    }
+
+    .rational {
+      color: rgb(27, 117, 187) !important;
+    }
+  </style>
+  
+<style>body {
+font-family: Helvetica,Arial,sans-serif;
+}
+body {
+font-family: 'Open Sans', Helvetica, 'Trebuchet MS', sans-serif !important; color: #4b4949; margin: 0px; padding: 0px; background-color: #f9f9f9; font-size: 18px;
+}
+</style></head>
+
+<body style="font-family: 'Open Sans', Helvetica, 'Trebuchet MS', sans-serif !important; color: #4b4949; font-size: 18px; margin: 0px; padding: 0px;" bgcolor="#f9f9f9">
+  <div class="bg" style="width: 100%; height: 100%; background-color: #dedede;">
+    <div class="container" style="max-width: 600px; background-color: white; margin: auto; padding: 0px 20px;">
+      <div style="width: 100%; padding-top: 70px; max-width: 200px; margin: auto;" align="center">
+        <img src="https://s3.amazonaws.com/keirsey-email-assets/Keirsey-Logo-(High-Res).png" style="max-width: 200px; margin: auto;" />
+      </div>
+      <table class="body" style="border-collapse: collapse; border-spacing: 0; color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; height: 100%; line-height: 1.3; text-align: left; vertical-align: top; width: 100%; margin: 0; padding: 0;" bgcolor="#fff">
+  <tr style="vertical-align: top; padding: 0;" align="left">
+    <td class="center" align="center" valign="top" style="border-collapse: collapse !important; color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0;">
+      <center data-parsed="" style="min-width: 600px; width: 100%;">
+        <table align="center" class="container float-center" style="border-collapse: collapse; border-spacing: 0; float: none; text-align: inherit; vertical-align: top; max-width: 600px; margin: 0 auto; padding: 0;" bgcolor="#ffffff">
+          <tbody>
+            <tr style="vertical-align: top; padding: 0;" align="left">
+              <td style="border-collapse: collapse !important; color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0;" align="left" valign="top">
+                <table class="spacer" style="border-collapse: collapse; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                  <tbody>
+                    <tr style="vertical-align: top; padding: 0;" align="left">
+                      <td height="25px" style="border-collapse: collapse !important; color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 25px; font-weight: 400; line-height: 25px; mso-line-height-rule: exactly; margin: 0; padding: 0;" align="left" valign="top"> </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Content -->
+                <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; position: relative; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                  <tbody>
+                    <tr style="vertical-align: top; padding: 0;" align="left">
+                      <th class="small-12 large-12 columns first last" style="color: #4b4949; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0 50px 50px;" align="left">
+                        <table style="border-collapse: collapse; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                          <tr style="vertical-align: top; padding: 0;" align="left">
+                            <th style="color: #4b4949; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 300; line-height: 1.3; margin: 0; padding: 0;" align="left">
+                              <h3 class="text-center" style="letter-spacing: 1px; font-weight: 300; color: #4b4949; font-size: 25px; font-style: normal; font-stretch: normal; line-height: 1.41; margin: 0 0 30px;" align="center">"The first step toward seeing others as distinct from yourself is to become better acquainted
+                                with your own traits of character."</h3>
+                              <p style="color: #4b4949; font-weight: 400; margin: 0; padding: 0;" align="center">- David Keirsey</p>
+                            </th>
+                          </tr>
+                        </table>
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </center>
+    </td>
+  </tr>
+</table>
+    </div>
+    <div class="footer" style="width: 640px; background-color: #f9f9f9; color: #959595; margin: auto; padding: 50px 0 28px 0px;" align="center">
+      <table style="width: 100%; position: relative; z-index: 9999; margin: 20px 0 0; padding: 0;" bgcolor="#f9f9f9">
+        <tbody>
+          <tr>
+            <th>
+              <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; position: relative; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                <tbody>
+                  <tr style="vertical-align: top; padding: 0;" align="left">
+                    <th class="small-12 large-12 columns first last" style="color: #4b4949; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; width: 600px; margin: 0 auto; padding: 0 50px 16px;" align="left">
+                      <table style="border-collapse: collapse; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                        <tr style="vertical-align: top; padding: 0;" align="left">
+                          <th style="color: #4b4949; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0;" align="left">
+                            <h3 class="text-center" style="color: #4b4949; font-weight: 300; font-size: 25px; font-style: normal; font-stretch: normal; line-height: 1.41; letter-spacing: normal; margin: 0 0 20px;" align="center">Your Temperament Results</h3>
+                          </th>
+                          <th class="expander" style="color: #4b4949; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; visibility: hidden; width: 0; margin: 0; padding: 0;" align="left"></th>
+                        </tr>
+                      </table>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; position: relative; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                <tbody>
+                  <tr style="vertical-align: top; padding: 0;" align="left">
+                    <th class="small-12 large-12 columns first last" style="color: #4b4949; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 18pxfont-weight:400; line-height: 1.3; width: 600px; margin: 0 auto; padding: 0 50px;" align="left">
+                      <table style="border-collapse: collapse; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                      <tr style="vertical-align: top; padding: 0;" align="left">
+                          <th style="color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; width: 100%; margin: 0; padding: 0;" align="center">
+                            <h3 class="guardian" style="color: rgb(245, 208, 88) !important; font-size: 25px; font-weight: normal; font-style: normal; font-stretch: normal; line-height: 1.41; letter-spacing: normal; margin: 0 0 20px;" align="center">
+                              Guardian
+                            </h3>
+                          </th>
+                        </tr>
+                        <tr style="vertical-align: top; padding: 0;" align="left">
+                          <th style="color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0 0 10px;" align="center">
+                            <img src="https://s3.amazonaws.com/keirsey-email-assets/guardian.png" style="width: 160px;" />
+                          </th>
+                        </tr>
+                        <tr style="vertical-align: top; padding: 0;" align="left">
+                          <th class="expander" style="color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; visibility: hidden; width: 0; margin: 0; padding: 0;" align="left"></th>
+                        </tr>
+                      </table>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; position: relative; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                <tbody>
+                  <tr style="vertical-align: top; padding: 0;" align="left">
+                    <th class="small-12 large-12 columns first last" style="color: #0a0a0a; font-family: 'Open Sans',Helvetica,Arial,sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; width: 600px; margin: 0 auto; padding: 0 50px;" align="left">
+                      <table style="border-collapse: collapse; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                        <tr style="vertical-align: top; padding: 0;" align="left">
+                          <th style="color: #4b4949; font-family: 'Open Sans',Helvetica,Arial,sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0;" align="left">
+                            <p class="double-line-height text-center" style="color: #4b4949; font-family: 'Open Sans',Helvetica,Arial,sans-serif; font-size: 18px; font-weight: 400; line-height: 30px; margin: 0 0 10px; padding: 40px 0 20px;" align="center">
+                              Your Username:
+                              sandersonjevaun10@gmail.com
+
+                            </p>
+                            <p class=" text-center" style="color: #4b4949; font-family: 'Open Sans',Helvetica,Arial,sans-serif; font-size: 16px; font-weight: 400; line-height: 32px; margin: 0 0 10px; padding: 0;" align="center">
+                              Use your Keirsey Profile page to learn about what it means to be a
+                              Guardian. Discover how your temperament shapes your approach to the workplace, romance, careers, leadership,
+                                and more.
+                                Share your journey with your friends and colleagues!
+                            </p>
+                          </th>
+                        </tr>
+                      </table>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; position: relative; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                <tbody>
+                  <tr style="vertical-align: top; padding: 0;" align="left">
+                    <th class="small-12 large-12 columns first last" style="color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; width: 600px; margin: 0 auto; padding: 0 50px 16px;" align="left">
+                      <table style="border-collapse: collapse; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                        <tr style="vertical-align: top; padding: 0;" align="left">
+                          <th style="color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0;" align="left">
+                            <center data-parsed="" style="min-width: 450px; width: 100%;">
+                              <table class="button email-primary-button float-center" style="border-collapse: collapse; border-spacing: 0; float: none; text-align: center; vertical-align: top; width: auto; margin: 10px 0 100px; padding: 0;">
+                                <tr style="vertical-align: top; padding: 0;" align="left">
+                                  <td style="border-collapse: collapse !important; color: #0a0a0a; font-family: 'Open Sans',Helvetica,Arial,sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0;" align="left" valign="top">
+                                    <table style="border-collapse: collapse; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+                                      <tr style="vertical-align: top; padding: 0;" align="left">
+                                        <td style="border-collapse: collapse !important; border-radius: 20px; color: #464646; font-family: 'Open Sans',Helvetica,Arial,sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; border: 0 solid #f47f7f;" align="left" bgcolor="#EBBAB4" valign="top">
+                                          <a style="display: block; color: #464646; text-decoration: none; padding: 10px 40px;" href="https://u5499907.ct.sendgrid.net/ls/click?upn=u001.QXPJ-2FHWOJ9DJKfMHCPl29tT4W1gkZYaZipmBPUYFX25BVCQmgRegFqXB79J6HaxDRsu7PeRlcpuK02EhkndVtQ-3D-3DpU-h_yShykUKh-2BLg16TlwubmuFkGORxXr2XuZSXhp7z9yPnUyZWH3mqfYSz19HBjWHvVW8GXsEq7OIkrRhqMTK3tq7uj8MW4GsON73JEY6GMC2G6-2BrNf4sZP8J122FWmF7Hexc5xttV3ywRZPGSfh5PuSfdvg-2B9WGP-2BpjJHmBO0cn882D9Ra9SbH2yMiNu-2BHoUX6hju3J-2FKEvah61pwJx2NgSqA-3D-3D" target="blank">My Keirsey Profile</a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </center>
+                          </th>
+                          <th class="expander" style="color: #0a0a0a; font-family: 'Open Sans',Helvetica,'Trebuchet MS'; font-size: 16px; font-weight: 400; line-height: 1.3; visibility: hidden; width: 0; margin: 0; padding: 0;" align="left"></th>
+                        </tr>
+                      </table>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <img src="https://s3.amazonaws.com/keirsey-email-assets/keirsey-logo-bullseye-50x50.png" style="width: 30px; height: 30px; position: relative; z-index: 99999999; padding-top: 20px;" />
+      <p style="color: #959595; font-size: 12px; max-width: 350px; margin: 0 auto; padding: 25px 0px;">Our mission is to change the
+        <br /> world by helping people understand each other.</p>
+      <table style="border-collapse: collapse; border-spacing: 0; text-align: left; vertical-align: top; width: 100%; padding: 0;">
+
+        <td height="10px" style="border-collapse: collapse !important; color: #0a0a0a; font-size: 10px; font-weight: 400; line-height: 10px; mso-line-height-rule: exactly; margin: 0; padding: 0;" align="left" valign="top"></td>
+
+        <th style="color: #0a0a0a; font-size: 10px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0;" align="left">
+          <p class="text-center dark-grey-text" style="color: #313131; font-size: 10px; font-weight: 400; line-height: 1.3; width: 240px; margin: auto; padding: 0;" align="center">
+            <!-- <a href="#" style="color:#959595;">Manage my email preferences</a> -->
+          </p>
+        </th>
+        <th class="expander" style="color: #0a0a0a; font-size: 16px; font-weight: 400; line-height: 1.3; visibility: hidden; width: 0; margin: 0; padding: 0;" align="left"></th>
+      </table>
+    </div>
+  </div>
+<img src="https://u5499907.ct.sendgrid.net/wf/open?upn=u001.-2Ft3rqpucDQc-2BpI6WTZ5Nd32YoTxjNnm6S2hFCyhVI6832oiXlFB7RfvYciXj9c3UJvjVEpPTT6kMjepbj7bamzx-2BH4Ab9LWWyhEiRGRG9LOTZTkF8LHuWnSiLMU2Nvn8FS79OHkBs3x-2FhPL4LfdGONmIComByQ-2B3AqxTlh5bTLKJjiGEXf7yUMtWaCaOLGQMQnLNzfZbtCAMP3NArbQTjYyhPRswHC1UkeQTzmWXH08-3D" alt="" width="1" height="1" border="0" style="height:1px !important;width:1px !important;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;"/></body>
+
+</html>
+
+----==_mimepart_66ee79422ad1b_522140341bc217492--
